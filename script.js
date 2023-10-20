@@ -43,4 +43,33 @@ const person = {
   };
   
   person.sayHello(); // Output: Hello, undefined
+
+
+  /*Arguments Object:
+Arrow functions do not have their own arguments object. Instead, they inherit the arguments object from their enclosing function or scope.
+Normal functions have their own arguments object.*/
+
+// Normal Function:
+function parent() {
+  const printArg = () => {
+    console.log(arguments); // Inherited from 'foo'
+  };
+  printArg();
+}
+
+parent(1, 2, 3); // Output: [Arguments] { '0': 1, '1': 2, '2': 3 }
+
+
+//Arrow Function:
+function para() {
+    const printArgs = function() {
+      console.log(arguments); // Own 'arguments' object
+    };
+    printArgs();
+  }
+  
+  para(1, 2, 3); // Output: [Arguments] {}
+  
+
+
   
